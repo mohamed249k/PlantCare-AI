@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlantCare AI — Premium Botanical Intelligence</title>
+  <meta name="description" content="Agricultural screening platform for Solanaceae crops: Tomato, Potato, and Bell Pepper with 15 pathological classes, validation cutoff policy, and agronomic management guidance.">
+  <meta name="theme-color" content="#123D2B">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-light">
+  <!-- Application Shell -->
+  <div class="app-layout">
+    
+    <!-- Mobile Navigation Overlay Backdrop -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="app-sidebar" id="app-sidebar" aria-label="Main Navigation">
+      <div class="sidebar-brand">
+        <div class="brand-mark" aria-hidden="true">
+          <!-- Botanical Leaf Shield SVG Icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 8c-2 2-3 4-3 6a3 3 0 0 0 6 0c0-2-1-4-3-6z"/>
+            <path d="M12 14v4"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">PLANTCARE AI</span>
+          <span class="brand-subtitle" data-i18n="tagline">Botanical Intelligence</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul class="nav-list" role="menubar">
+          <li role="none">
+            <button class="nav-link active" data-page="home" role="menuitem">
+              <span class="nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </span>
+              <span class="nav-label" data-i18n="home">Home</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="nav-link" data-page="dashboard" role="menuitem">
+              <span class="nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+              </span>
+              <span class="nav-label" data-i18n="dashboard">Dashboard</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="nav-link" data-page="scan" role="menuitem">
+              <span class="nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+              </span>
+              <span class="nav-label" data-i18n="detect">AI Disease Detection</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="nav-link" data-page="result" role="menuitem">
+              <span class="nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </span>
+              <span class="nav-label" data-i18n="report">Diagnosis Report</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="nav-link" data-page="history" role="menuitem">
+              <span class="nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <span class="nav-label" data-i18n="history">Analysis History</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="nav-link" data-page="library" role="menuitem">
+              <span class="nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+              </span>
+              <span class="nav-label" data-i18n="library">Disease Library</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="nav-link" data-page="reports" role="menuitem">
+              <span class="nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+              </span>
+              <span class="nav-label" data-i18n="analytics_reports">Analytics & Reports</span>
+            </button>
+          </li>
+          <li role="none">
+            <button class="nav-link" data-page="settings" role="menuitem">
+              <span class="nav-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+              </span>
+              <span class="nav-label" data-i18n="settings">Settings</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Architecture Pill -->
+      <div class="sidebar-footer">
+        <div class="status-chip">
+          <span class="status-dot pulse" aria-hidden="true"></span>
+          <span class="status-text" data-i18n="privacy_offline_badge">100% Local Inference · Zero Cloud</span>
+        </div>
+        <p class="sidebar-note" data-i18n="model_summary">MobileNetV2 · 224×224 RGB · 15 classes</p>
+      </div>
+    </aside>
+
+    <!-- Main Viewport Area -->
+    <div class="app-main">
+      
+      <!-- Topbar Header -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button class="menu-toggle-btn" id="menu-toggle-btn" aria-label="Toggle navigation menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </button>
+          <div class="topbar-meta">
+            <span class="topbar-kicker" data-i18n="platform_kicker">LOCAL PLANT HEALTH PLATFORM</span>
+            <h2 class="topbar-title" id="page-heading">PlantCare AI</h2>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Quick Scan Button -->
+          <button class="btn btn-emerald btn-sm" id="topbar-scan-btn" data-action="quick-scan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span data-i18n="new_analysis">Start Analysis</span>
+          </button>
+
+          <!-- Language Selector -->
+          <button class="btn btn-ghost btn-icon-only" id="lang-toggle-btn" title="Toggle Language / تبديل اللغة" aria-label="Toggle Language">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-text" id="lang-indicator">العربية</span>
+          </button>
+
+          <!-- Theme Selector -->
+          <button class="btn btn-ghost btn-icon-only" id="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+            <span class="theme-icon-light" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+            </span>
+            <span class="theme-icon-dark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Content Container with 8 Independent Screen Sections -->
+      <main class="app-content" id="main-content">
+
+        <!-- ==========================================
+             SECTION 1: HOME
+             ========================================== -->
+        <section class="page-section active" id="section-home">
+          <!-- Hero Banner -->
+          <div class="hero-banner">
+            <div class="hero-content">
+              <span class="hero-kicker" data-i18n="welcome">PLANTCARE AI</span>
+              <h1 class="hero-heading" data-i18n="welcome_sub">A practical image-based screening assistant for tomato, potato, and bell pepper.</h1>
+              <p class="hero-desc" data-i18n="tagline">Clearer crop care starts with a careful look.</p>
+              <div class="hero-actions">
+                <button class="btn btn-primary btn-lg" data-action="navigate" data-target="scan">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
+                  <span data-i18n="new_analysis">Start an analysis</span>
+                </button>
+                <button class="btn btn-outline-white btn-lg" data-action="navigate" data-target="library">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/></svg>
+                  <span data-i18n="library">Disease Library</span>
+                </button>
+              </div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <svg viewBox="0 0 200 200" class="hero-leaf-graphic">
+                <defs>
+                  <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#42be81"/>
+                    <stop offset="50%" stop-color="#228653"/>
+                    <stop offset="100%" stop-color="#144633"/>
+                  </linearGradient>
+                </defs>
+                <path d="M100 20 C140 20, 180 60, 180 110 C180 155, 140 180, 100 180 C60 180, 20 155, 20 110 C20 60, 60 20, 100 20 Z" fill="url(#leafGrad)" opacity="0.9"/>
+                <path d="M100 20 L100 180" stroke="#c8e6d0" stroke-width="4" stroke-linecap="round"/>
+                <path d="M100 60 Q140 75 160 90" stroke="#c8e6d0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M100 90 Q60 105 40 120" stroke="#c8e6d0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M100 120 Q140 135 155 150" stroke="#c8e6d0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Quick Metrics Ribbon -->
+          <div class="metric-grid-home">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title" data-i18n="records">Saved analyses</span>
+                <span class="metric-icon-wrap" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+              </div>
+              <div class="metric-val" id="home-stat-total">0</div>
+              <span class="metric-caption" data-i18n="dashboard_note">Local browser storage</span>
+            </div>
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title" data-i18n="accepted">Above review cutoff</span>
+                <span class="metric-icon-wrap" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </span>
+              </div>
+              <div class="metric-val text-emerald" id="home-stat-accepted">0</div>
+              <span class="metric-caption">Cutoff &ge; 0.593255</span>
+            </div>
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title" data-i18n="needs_review">Needs review</span>
+                <span class="metric-icon-wrap" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </span>
+              </div>
+              <div class="metric-val text-amber" id="home-stat-review">0</div>
+              <span class="metric-caption" data-i18n="uncertain_status">Uncertain screening</span>
+            </div>
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title" data-i18n="test_accuracy">Test accuracy</span>
+                <span class="metric-icon-wrap" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </span>
+              </div>
+              <div class="metric-val text-forest">93.16%</div>
+              <span class="metric-caption">4,047 test images</span>
+            </div>
+          </div>
+
+          <!-- Supported Crops Section -->
+          <div class="card card-section">
+            <div class="section-heading-wrap">
+              <div>
+                <h3 class="section-title" data-i18n="crops_title">Supported Crop Taxonomy</h3>
+                <p class="section-desc" data-i18n="crops_desc">Evaluates 15 discrete pathological and healthy visual classes across three essential Solanaceae crops.</p>
+              </div>
+              <span class="badge badge-emerald" data-i18n="classes">15 Classes</span>
+            </div>
+
+            <div class="crop-grid">
+              <!-- Tomato Card -->
+              <div class="crop-card" data-crop="Tomato">
+                <div class="crop-icon-banner tomato-banner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="crop-svg"><circle cx="12" cy="13" r="8"/><path d="M12 5V2"/><path d="M9 4c1 1 3 1 3 1s2 0 3-1"/></svg>
+                </div>
+                <div class="crop-details">
+                  <h4 class="crop-title" data-i18n="crop_tomato_title">Tomato (Solanum lycopersicum)</h4>
+                  <p class="crop-count" data-i18n="crop_tomato_classes">10 conditions (8 diseases, 1 pest, healthy)</p>
+                  <ul class="crop-tags">
+                    <li>Early Blight</li>
+                    <li>Late Blight</li>
+                    <li>Bacterial Spot</li>
+                    <li>Leaf Mold</li>
+                    <li>Septoria</li>
+                    <li>Yellow Leaf Curl</li>
+                    <li>Mosaic Virus</li>
+                    <li>Spider Mites</li>
+                    <li>Target Spot</li>
+                    <li>Healthy</li>
+                  </ul>
+                  <button class="btn btn-ghost btn-sm" data-action="explore-crop" data-crop="Tomato" data-i18n="view_details">View details &rarr;</button>
+                </div>
+              </div>
+
+              <!-- Potato Card -->
+              <div class="crop-card" data-crop="Potato">
+                <div class="crop-icon-banner potato-banner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="crop-svg"><ellipse cx="12" cy="13" rx="8" ry="6"/><path d="M12 7V4"/><path d="M10 5c1 1 2 1 2 1s1 0 2-1"/></svg>
+                </div>
+                <div class="crop-details">
+                  <h4 class="crop-title" data-i18n="crop_potato_title">Potato (Solanum tuberosum)</h4>
+                  <p class="crop-count" data-i18n="crop_potato_classes">3 conditions (Early blight, Late blight, healthy)</p>
+                  <ul class="crop-tags">
+                    <li>Early Blight</li>
+                    <li>Late Blight</li>
+                    <li>Healthy</li>
+                  </ul>
+                  <button class="btn btn-ghost btn-sm" data-action="explore-crop" data-crop="Potato" data-i18n="view_details">View details &rarr;</button>
+                </div>
+              </div>
+
+              <!-- Bell Pepper Card -->
+              <div class="crop-card" data-crop="Pepper,_bell">
+                <div class="crop-icon-banner pepper-banner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="crop-svg"><path d="M12 3v3"/><path d="M10 6c-3 0-5 3-5 7 0 5 3 6 7 6s7-1 7-6c0-4-2-7-5-7z"/><path d="M12 6c-1 3-1 8 0 13"/></svg>
+                </div>
+                <div class="crop-details">
+                  <h4 class="crop-title" data-i18n="crop_pepper_title">Bell Pepper (Capsicum annuum)</h4>
+                  <p class="crop-count" data-i18n="crop_pepper_classes">2 conditions (Bacterial spot, healthy)</p>
+                  <ul class="crop-tags">
+                    <li>Bacterial Spot</li>
+                    <li>Healthy</li>
+                  </ul>
+                  <button class="btn btn-ghost btn-sm" data-action="explore-crop" data-crop="Pepper,_bell" data-i18n="view_details">View details &rarr;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- How It Works & Clinical Protocol -->
+          <div class="grid-two-col">
+            <div class="card">
+              <h3 class="card-title" data-i18n="how_title">How it works</h3>
+              <div class="timeline-steps">
+                <div class="step-item">
+                  <div class="step-num">1</div>
+                  <div class="step-info">
+                    <h5 class="step-title" data-i18n="how_1">Upload a clear leaf photo.</h5>
+                    <p class="step-desc" data-i18n="upload_help">Use one clear, well-lit image of a leaf from tomato, potato, or bell pepper.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-num">2</div>
+                  <div class="step-info">
+                    <h5 class="step-title" data-i18n="how_2">The trained MobileNetV2 ranks 15 visual classes.</h5>
+                    <p class="step-desc" data-i18n="confidence_gauge_title">Evaluates against the validation cutoff (0.593255) for selective accuracy.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-num">3</div>
+                  <div class="step-info">
+                    <h5 class="step-title" data-i18n="how_3">Review cautious, source-linked next steps.</h5>
+                    <p class="step-desc" data-i18n="action_plan_title">Access scientific university extension guidance and sanitary management.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title" data-i18n="disclaimer">Important limitation</h3>
+              <div class="alert alert-warning mb-3">
+                <p class="alert-text" data-i18n="disclaimer_body">This is an AI-assisted visual suggestion, not a confirmed agricultural diagnosis. Symptoms can overlap and a single image may not show the full plant. The displayed score is an uncalibrated model confidence score, not a probability.</p>
+              </div>
+              <div class="security-features">
+                <div class="security-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sec-icon"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <div>
+                    <strong>Zero Remote APIs</strong>
+                    <p>All processing occurs inside your web browser. No photos leave your computer.</p>
+                  </div>
+                </div>
+                <div class="security-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sec-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <div>
+                    <strong>Scientific Grounding</strong>
+                    <p>Evidence-based symptoms from UMN Extension, UC IPM, and Penn State Agriculture.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 2: DASHBOARD
+             ========================================== -->
+        <section class="page-section" id="section-dashboard">
+          <div class="section-header-row">
+            <div>
+              <h2 class="page-title" data-i18n="dashboard_title">Your analysis dashboard</h2>
+              <p class="page-subtitle" data-i18n="dashboard_note">All counts and charts below come from saved local analysis records.</p>
+            </div>
+            <div class="filter-group">
+              <select id="dash-filter-crop" class="form-select form-select-sm" aria-label="Filter Dashboard by Crop">
+                <option value="all" data-i18n="all_crops">All crops</option>
+                <option value="Tomato">Tomato</option>
+                <option value="Potato">Potato</option>
+                <option value="Pepper,_bell">Bell Pepper</option>
+              </select>
+              <select id="dash-filter-time" class="form-select form-select-sm" aria-label="Filter Dashboard Time Range">
+                <option value="all">All Time</option>
+                <option value="30">Last 30 Days</option>
+                <option value="7">Last 7 Days</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- KPI Metric Cards Grid -->
+          <div class="metric-row-6">
+            <div class="metric-card">
+              <span class="metric-title" data-i18n="records">Total Analyses</span>
+              <div class="metric-val" id="dash-metric-total">0</div>
+              <span class="metric-caption">Stored records</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title" data-i18n="healthy">Healthy Plants</span>
+              <div class="metric-val text-emerald" id="dash-metric-healthy">0</div>
+              <span class="metric-caption" id="dash-metric-healthy-pct">0%</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title" data-i18n="disease">Pathologies Detected</span>
+              <div class="metric-val text-rose" id="dash-metric-diseased">0</div>
+              <span class="metric-caption" id="dash-metric-diseased-pct">0%</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title" data-i18n="accepted">Above Cutoff</span>
+              <div class="metric-val text-emerald" id="dash-metric-accepted">0</div>
+              <span class="metric-caption">&ge; 0.593255</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title" data-i18n="needs_review">Needs Review</span>
+              <div class="metric-val text-amber" id="dash-metric-review">0</div>
+              <span class="metric-caption">&lt; 0.593255</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title" data-i18n="confidence">Avg Confidence</span>
+              <div class="metric-val text-forest" id="dash-metric-avg-conf">0%</div>
+              <span class="metric-caption">Softmax score</span>
+            </div>
+          </div>
+
+          <!-- Interactive Visualization Charts (SVG-Powered) -->
+          <div class="charts-grid-2x2">
+            <!-- Chart 1: Activity Timeline -->
+            <div class="card chart-card">
+              <div class="chart-header">
+                <div>
+                  <h4 class="chart-title" data-i18n="daily">Analyses over time</h4>
+                  <span class="chart-sub" data-i18n="dashboard_note">Daily scan volume</span>
+                </div>
+              </div>
+              <div class="chart-body" id="chart-timeline-container">
+                <!-- SVG Canvas injected dynamically -->
+              </div>
+            </div>
+
+            <!-- Chart 2: Crop Distribution Donut -->
+            <div class="card chart-card">
+              <div class="chart-header">
+                <div>
+                  <h4 class="chart-title" data-i18n="by_crop">Analyses by crop</h4>
+                  <span class="chart-sub">Tomato, Potato & Bell Pepper</span>
+                </div>
+              </div>
+              <div class="chart-body donut-chart-body" id="chart-crop-container">
+                <!-- SVG Donut Chart injected dynamically -->
+              </div>
+            </div>
+
+            <!-- Chart 3: Disease Condition Frequency -->
+            <div class="card chart-card">
+              <div class="chart-header">
+                <div>
+                  <h4 class="chart-title" data-i18n="by_class">Most frequent model suggestions</h4>
+                  <span class="chart-sub">Top classified conditions</span>
+                </div>
+              </div>
+              <div class="chart-body" id="chart-conditions-container">
+                <!-- Horizontal bar visualization -->
+              </div>
+            </div>
+
+            <!-- Chart 4: Validation Policy Gauge & Status Breakdown -->
+            <div class="card chart-card">
+              <div class="chart-header">
+                <div>
+                  <h4 class="chart-title" data-i18n="confidence_gauge_title">Validation Cutoff Analysis</h4>
+                  <span class="chart-sub">Selective accuracy review (0.593255 cutoff)</span>
+                </div>
+              </div>
+              <div class="chart-body" id="chart-gauge-container">
+                <!-- SVG Gauge chart injected dynamically -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 3: SCAN PLANT (AI DETECTION)
+             ========================================== -->
+        <section class="page-section" id="section-scan">
+          <div class="scan-layout">
+            
+            <!-- Left Column: Upload and Validation Zone -->
+            <div class="scan-input-card card">
+              <div class="card-header-clean">
+                <h3 class="card-title" data-i18n="upload_title">Analyze a plant image</h3>
+                <p class="card-subtitle" data-i18n="upload_help">Use one clear, well-lit image of a leaf or plant from the supported crops.</p>
+              </div>
+
+              <!-- Drag and Drop Dropzone -->
+              <div class="dropzone" id="image-dropzone" tabindex="0" role="button" aria-label="Drop plant leaf image here or click to browse">
+                <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" class="file-input-hidden">
+                <div class="dropzone-content" id="dropzone-prompt">
+                  <div class="dropzone-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  </div>
+                  <h4 class="dropzone-title" data-i18n="upload_drag_hint">Drop your plant foliage photo here or browse files</h4>
+                  <p class="dropzone-meta">Supports JPEG, PNG, WEBP &bull; Max 15 MB &bull; Min 64&times;64 px</p>
+                  <button type="button" class="btn btn-outline-forest btn-sm mt-2" id="browse-btn" data-i18n="upload">Choose an image</button>
+                </div>
+
+                <!-- Active Image Preview Container (Inside Dropzone) -->
+                <div class="dropzone-preview hidden" id="dropzone-preview">
+                  <img id="preview-image-elem" alt="Uploaded plant foliage preview" class="preview-img">
+                  <div class="preview-overlay">
+                    <button type="button" class="btn btn-danger btn-sm" id="btn-remove-image">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                      Remove
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Optical Inspection Pill (Dynamically populated) -->
+              <div class="inspection-results hidden" id="inspection-box">
+                <div class="inspection-item">
+                  <span class="label">Dimensions:</span>
+                  <span class="val" id="inspect-dim">--</span>
+                </div>
+                <div class="inspection-item">
+                  <span class="label">Aspect Ratio:</span>
+                  <span class="val" id="inspect-aspect">--</span>
+                </div>
+                <div class="inspection-item">
+                  <span class="label">File Size:</span>
+                  <span class="val" id="inspect-size">--</span>
+                </div>
+                <div class="inspection-item">
+                  <span class="label">Optical Quality:</span>
+                  <span class="val text-emerald" id="inspect-quality">Optimal</span>
+                </div>
+              </div>
+
+              <!-- Diagnostic Progress Bar -->
+              <div class="progress-wrap hidden" id="scan-progress-wrap">
+                <div class="progress-status-row">
+                  <span class="progress-label" id="scan-progress-label" data-i18n="analyzing">Running PlantCare AI inference…</span>
+                  <span class="progress-pct" id="scan-progress-pct">0%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-bar-fill" id="scan-progress-bar"></div>
+                </div>
+              </div>
+
+              <!-- Action Bar -->
+              <div class="scan-actions">
+                <button class="btn btn-primary btn-lg w-100" id="btn-run-analysis" disabled>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span data-i18n="analyze">Analyze image</span>
+                </button>
+              </div>
+
+              <!-- Preset Sample Images Section -->
+              <div class="preset-samples-box">
+                <span class="preset-title" data-i18n="quick_start">Quick Screening Presets:</span>
+                <p class="preset-desc">Test the screening engine instantly using grounded botanical samples:</p>
+                <div class="preset-buttons">
+                  <button type="button" class="btn btn-preset" data-preset="tomato-early-blight">
+                    <span>🍅 Tomato Early Blight</span>
+                  </button>
+                  <button type="button" class="btn btn-preset" data-preset="potato-late-blight">
+                    <span>🥔 Potato Late Blight</span>
+                  </button>
+                  <button type="button" class="btn btn-preset" data-preset="pepper-bacterial-spot">
+                    <span>🫑 Pepper Bacterial Spot</span>
+                  </button>
+                  <button type="button" class="btn btn-preset" data-preset="tomato-healthy">
+                    <span>🌿 Healthy Tomato</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Verification & Engine Specifications -->
+            <div class="scan-info-card">
+              <div class="card mb-3">
+                <h4 class="card-title text-forest" data-i18n="verified_badge">Verified Architecture</h4>
+                <div class="spec-list">
+                  <div class="spec-row">
+                    <span class="spec-key" data-i18n="model">Model:</span>
+                    <span class="spec-val">MobileNetV2 (ImageNet weights)</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-key">Input Tensor:</span>
+                    <span class="spec-val">224 &times; 224 &times; 3 RGB</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-key">Normalization:</span>
+                    <span class="spec-val"><code>(pixel / 127.5) - 1.0</code></span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-key">Validation Cutoff:</span>
+                    <span class="spec-val font-mono">0.593255</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-key">Selective Target:</span>
+                    <span class="spec-val">&ge; 95% validation accuracy</span>
+                  </div>
+                  <div class="spec-row">
+                    <span class="spec-key" data-i18n="classes">Total Classes:</span>
+                    <span class="spec-val">15 PlantVillage categories</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card">
+                <h4 class="card-title" data-i18n="disclaimer">Diagnostic Engine Mode</h4>
+                <div class="engine-badge-box">
+                  <span class="badge badge-emerald">Browser Heuristic &amp; Taxonomy Engine</span>
+                </div>
+                <p class="text-sm text-muted mt-2">
+                  This standalone Vanilla web application runs a 100% client-side botanical screening engine based on the grounded 15-class taxonomy, validation cutoff policy (&ge;0.593255), and optical feature inspection. It requires no external server or API.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 4: DIAGNOSIS RESULT (REPORT VIEW)
+             ========================================== -->
+        <section class="page-section" id="section-result">
+          <!-- Empty State (when no analysis has been performed yet) -->
+          <div class="empty-state-card card" id="result-empty-state">
+            <div class="empty-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+            </div>
+            <h3 class="empty-title" data-i18n="report_empty">No analysis is available yet. Upload an image on the AI Disease Detection page first.</h3>
+            <p class="empty-desc" data-i18n="empty_report_cta">Upload and analyze a plant leaf to generate a comprehensive diagnostic report.</p>
+            <button class="btn btn-primary" data-action="navigate" data-target="scan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><circle cx="12" cy="12" r="10"/><path d="m10 15 5-3-5-3v6z"/></svg>
+              <span data-i18n="new_analysis">Start an analysis</span>
+            </button>
+          </div>
+
+          <!-- Active Diagnosis Result Report Container -->
+          <div class="result-report-layout hidden" id="result-active-layout">
+            
+            <!-- Result Top Hero Card -->
+            <div class="card result-banner" id="result-banner-box">
+              <div class="result-banner-content">
+                <div class="result-badges-row">
+                  <span class="badge" id="result-status-badge">Above Cutoff</span>
+                  <span class="badge badge-tag" id="result-crop-badge">Tomato</span>
+                  <span class="badge badge-tag" id="result-health-badge">Pathology</span>
+                </div>
+                <h2 class="result-disease-heading" id="result-disease-name">Early Blight</h2>
+                <p class="result-crop-scientific" id="result-crop-name">Tomato (Solanum lycopersicum)</p>
+                <div class="result-meta-line">
+                  <span id="result-filename-text">image.jpg</span> &bull; 
+                  <span id="result-date-text">Just now</span>
+                </div>
+              </div>
+              <div class="result-image-holder">
+                <img id="result-img-display" alt="Diagnosed leaf" class="result-thumbnail">
+              </div>
+            </div>
+
+            <!-- Two-Column Clinical Assessment Grid -->
+            <div class="grid-two-col">
+              
+              <!-- Left Column: Confidence & Validation Cutoff Gauge -->
+              <div class="card">
+                <div class="card-header-clean">
+                  <h4 class="card-title" data-i18n="confidence_gauge_title">Validation Cutoff Analysis</h4>
+                  <span class="badge badge-tag" id="result-confidence-val">88.5%</span>
+                </div>
+
+                <p class="text-sm text-muted" data-i18n="threshold_note">
+                  The review cutoff was selected using the validation split to meet an observed selective-accuracy target. It is not a guarantee and does not calibrate the score as a probability.
+                </p>
+
+                <!-- Confidence Gauge Visualizer -->
+                <div class="pc-gauge-wrap">
+                  <div class="pc-gauge-track">
+                    <div class="pc-gauge-fill" id="result-gauge-fill" style="width: 88.5%;"></div>
+                    <!-- 0.593255 Cutoff Marker -->
+                    <div class="pc-gauge-marker" style="left: 59.3255%;" title="Validation Cutoff: 0.593255"></div>
+                  </div>
+                  <div class="pc-gauge-labels">
+                    <span>0.0 (Uncertain)</span>
+                    <span class="marker-label">Cutoff: 0.593</span>
+                    <span>1.0 (Confident)</span>
+                  </div>
+                </div>
+
+                <!-- Top Candidates Distribution -->
+                <h5 class="subheading mt-3" data-i18n="top_candidates">Other model candidates</h5>
+                <div class="candidates-list" id="result-candidates-box">
+                  <!-- Populated dynamically -->
+                </div>
+              </div>
+
+              <!-- Right Column: Protocol & Symptoms -->
+              <div class="card">
+                <h4 class="card-title text-forest" data-i18n="action_plan_title">Recommended Agronomic Protocol</h4>
+                
+                <!-- Symptoms Header -->
+                <div class="protocol-section">
+                  <h5 class="protocol-subheading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sub-icon"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span data-i18n="symptoms_header">Diagnostic Visual Signs</span>
+                  </h5>
+                  <ul class="bullet-list" id="result-symptoms-list">
+                    <!-- Populated dynamically -->
+                  </ul>
+                </div>
+
+                <!-- Management Header -->
+                <div class="protocol-section mt-3">
+                  <h5 class="protocol-subheading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="sub-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <span data-i18n="management_header">Prescribed Management &amp; Treatment</span>
+                  </h5>
+                  <ul class="bullet-list" id="result-management-list">
+                    <!-- Populated dynamically -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Extension Citations & Scientific Sources -->
+            <div class="card">
+              <h4 class="card-title" data-i18n="extension_sources_header">Scientific &amp; Extension Literature</h4>
+              <p class="text-sm text-muted mb-2">Validated agronomic references supporting this diagnostic class:</p>
+              <div class="source-pills-wrap" id="result-sources-box">
+                <!-- Source links populated dynamically -->
+              </div>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="result-actions-bar">
+              <button class="btn btn-outline-forest" data-action="navigate" data-target="scan">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span data-i18n="new_analysis">Start an analysis</span>
+              </button>
+              <button class="btn btn-outline-forest" id="btn-print-result">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+                <span data-i18n="download_pdf">Print Report</span>
+              </button>
+              <button class="btn btn-primary" data-action="navigate" data-target="history">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span data-i18n="history">Analysis History</span>
+              </button>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 5: HISTORY
+             ========================================== -->
+        <section class="page-section" id="section-history">
+          <div class="section-header-row">
+            <div>
+              <h2 class="page-title" data-i18n="history_title">Analysis history</h2>
+              <p class="page-subtitle" data-i18n="dashboard_note">Saved locally on this device in browser persistent storage.</p>
+            </div>
+            <div class="btn-group-actions">
+              <button class="btn btn-outline-forest btn-sm" id="btn-export-history-csv">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span data-i18n="export_csv_btn">Export CSV</span>
+              </button>
+              <button class="btn btn-outline-danger btn-sm" id="btn-clear-all-history">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                <span>Clear History</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Filters Toolbar -->
+          <div class="card toolbar-card">
+            <div class="filter-controls-grid">
+              <div class="form-group">
+                <label for="history-search" class="form-label" data-i18n="search">Search filename or class</label>
+                <input type="text" id="history-search" class="form-input" placeholder="e.g. Early blight, tomato...">
+              </div>
+              <div class="form-group">
+                <label for="history-filter-crop" class="form-label" data-i18n="crop_filter">Crop</label>
+                <select id="history-filter-crop" class="form-select">
+                  <option value="all" data-i18n="all">All</option>
+                  <option value="Tomato">Tomato</option>
+                  <option value="Potato">Potato</option>
+                  <option value="Pepper,_bell">Bell Pepper</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="history-filter-status" class="form-label" data-i18n="status_filter">Review status</label>
+                <select id="history-filter-status" class="form-select">
+                  <option value="all" data-i18n="all">All</option>
+                  <option value="accepted" data-i18n="only_accepted">Above cutoff</option>
+                  <option value="review" data-i18n="only_review">Needs review</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="history-sort" class="form-label">Sort</label>
+                <select id="history-sort" class="form-select">
+                  <option value="newest">Date: Newest First</option>
+                  <option value="oldest">Date: Oldest First</option>
+                  <option value="conf-high">Confidence: High to Low</option>
+                  <option value="conf-low">Confidence: Low to High</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- History Table / Records List -->
+          <div class="card table-card">
+            <div class="table-responsive">
+              <table class="data-table" id="history-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Date / Time</th>
+                    <th scope="col">Image</th>
+                    <th scope="col" data-i18n="plant">Plant</th>
+                    <th scope="col" data-i18n="disease">Model suggestion</th>
+                    <th scope="col" data-i18n="confidence">Confidence</th>
+                    <th scope="col" data-i18n="review_status">Status</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="history-table-body">
+                  <!-- Populated dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Empty History State -->
+            <div class="empty-state hidden" id="history-empty">
+              <p data-i18n="no_matches">No records match these filters.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 6: DISEASE LIBRARY
+             ========================================== -->
+        <section class="page-section" id="section-library">
+          <div class="section-header-row">
+            <div>
+              <h2 class="page-title" data-i18n="library_title">Disease library</h2>
+              <p class="page-subtitle" data-i18n="not_diagnosis">Visual reference only; these signs are not diagnostic by themselves.</p>
+            </div>
+          </div>
+
+          <!-- Library Filter and Search -->
+          <div class="card toolbar-card">
+            <div class="filter-controls-grid">
+              <div class="form-group search-flex-grow">
+                <label for="lib-search" class="form-label" data-i18n="search_library">Search disease or symptom</label>
+                <input type="text" id="lib-search" class="form-input" placeholder="e.g. blight, curl, spot, mold...">
+              </div>
+              <div class="form-group">
+                <label for="lib-crop-filter" class="form-label" data-i18n="crop">Crop</label>
+                <select id="lib-crop-filter" class="form-select">
+                  <option value="all" data-i18n="all_crops">All crops</option>
+                  <option value="Tomato">Tomato (10)</option>
+                  <option value="Potato">Potato (3)</option>
+                  <option value="Pepper,_bell">Bell Pepper (2)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="lib-type-filter" class="form-label">Category</label>
+                <select id="lib-type-filter" class="form-select">
+                  <option value="all">All Conditions</option>
+                  <option value="healthy">Healthy Only</option>
+                  <option value="pathology">Pathologies Only</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15 Supported Classes Card Grid -->
+          <div class="library-grid" id="library-cards-container">
+            <!-- 15 disease cards populated dynamically from grounded knowledge.py -->
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 7: ANALYTICS & REPORTS
+             ========================================== -->
+        <section class="page-section" id="section-reports">
+          <div class="section-header-row">
+            <div>
+              <h2 class="page-title">Phytosanitary Diagnostic Reports</h2>
+              <p class="page-subtitle">Generate, filter, print, and export aggregated crop screening summaries.</p>
+            </div>
+            <div class="btn-group-actions">
+              <button class="btn btn-outline-forest" id="btn-print-reports-page">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+                <span>Print / Save PDF</span>
+              </button>
+              <button class="btn btn-emerald" id="btn-export-report-csv">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Export Report CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Report Filter Toolbar -->
+          <div class="card toolbar-card print-hidden">
+            <div class="filter-controls-grid">
+              <div class="form-group">
+                <label for="report-date-from" class="form-label" data-i18n="from_date">From</label>
+                <input type="date" id="report-date-from" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="report-date-to" class="form-label" data-i18n="to_date">To</label>
+                <input type="date" id="report-date-to" class="form-input">
+              </div>
+              <div class="form-group">
+                <label for="report-crop-filter" class="form-label" data-i18n="crop_filter">Crop</label>
+                <select id="report-crop-filter" class="form-select">
+                  <option value="all" data-i18n="all">All</option>
+                  <option value="Tomato">Tomato</option>
+                  <option value="Potato">Potato</option>
+                  <option value="Pepper,_bell">Bell Pepper</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="report-status-filter" class="form-label" data-i18n="status_filter">Review status</label>
+                <select id="report-status-filter" class="form-select">
+                  <option value="all" data-i18n="all">All</option>
+                  <option value="accepted" data-i18n="only_accepted">Above cutoff</option>
+                  <option value="review" data-i18n="only_review">Needs review</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Printable Report Container -->
+          <div class="printable-report-wrapper" id="printable-report">
+            <!-- Report Document Header (visible on screen and in print) -->
+            <div class="report-doc-header">
+              <div class="report-brand">
+                <div class="brand-mark-small">🌿</div>
+                <div>
+                  <h3 class="doc-title">PLANTCARE AI &mdash; PHYTOSANITARY SUMMARY REPORT</h3>
+                  <p class="doc-meta">Generated: <span id="report-gen-date">Today</span> &bull; Confidential Agronomic Screening Document</p>
+                </div>
+              </div>
+              <div class="report-badge-box">
+                <span class="badge badge-emerald">Selective Cutoff: 0.593255</span>
+              </div>
+            </div>
+
+            <!-- Aggregated Executive Summary Cards -->
+            <div class="report-kpi-row">
+              <div class="report-kpi-item">
+                <span class="kpi-label">Total Screenings:</span>
+                <span class="kpi-number" id="rep-stat-total">0</span>
+              </div>
+              <div class="report-kpi-item">
+                <span class="kpi-label">Healthy Plant Rate:</span>
+                <span class="kpi-number text-emerald" id="rep-stat-healthy-rate">0%</span>
+              </div>
+              <div class="report-kpi-item">
+                <span class="kpi-label">Pathology Rate:</span>
+                <span class="kpi-number text-rose" id="rep-stat-disease-rate">0%</span>
+              </div>
+              <div class="report-kpi-item">
+                <span class="kpi-label">Selective Acceptance:</span>
+                <span class="kpi-number text-forest" id="rep-stat-accept-rate">0%</span>
+              </div>
+            </div>
+
+            <!-- Distribution Breakdown Section -->
+            <div class="card mt-3">
+              <h4 class="card-title">Classified Conditions Breakdown</h4>
+              <div class="table-responsive">
+                <table class="data-table" id="report-breakdown-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Crop</th>
+                      <th scope="col">Diagnosed Class</th>
+                      <th scope="col">Count</th>
+                      <th scope="col">% of Total</th>
+                      <th scope="col">Status Distribution</th>
+                    </tr>
+                  </thead>
+                  <tbody id="report-breakdown-body">
+                    <!-- Dynamic breakdown rows -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Detailed Log Table -->
+            <div class="card mt-3">
+              <h4 class="card-title">Detailed Analysis Record Log</h4>
+              <div class="table-responsive">
+                <table class="data-table" id="report-records-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Timestamp</th>
+                      <th scope="col">Filename</th>
+                      <th scope="col">Crop</th>
+                      <th scope="col">Condition</th>
+                      <th scope="col">Confidence</th>
+                      <th scope="col">Cutoff Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="report-records-body">
+                    <!-- Populated dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Report Scientific Disclaimer -->
+            <div class="report-disclaimer-box mt-3">
+              <strong>Notice:</strong> This document summarizes automated AI-assisted visual screenings for academic and preliminary screening purposes. It is not a certified laboratory phytosanitary diagnosis. Consult regional agricultural extension specialists before applying treatment.
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 8: SETTINGS
+             ========================================== -->
+        <section class="page-section" id="section-settings">
+          <div class="section-header-row">
+            <div>
+              <h2 class="page-title" data-i18n="settings">Settings</h2>
+              <p class="page-subtitle">Configure application language, interface theme, and local data persistence.</p>
+            </div>
+          </div>
+
+          <div class="settings-grid">
+            
+            <!-- Preferences Card -->
+            <div class="card">
+              <h3 class="card-title" data-i18n="language">Language / اللغة</h3>
+              <p class="text-sm text-muted mb-3">Choose the interface language and document reading direction.</p>
+              
+              <div class="settings-option-row">
+                <label for="setting-lang-select" class="form-label mb-0">Active Language:</label>
+                <select id="setting-lang-select" class="form-select form-select-sm w-auto">
+                  <option value="en">English (LTR)</option>
+                  <option value="ar">العربية (RTL)</option>
+                </select>
+              </div>
+
+              <div class="divider-line my-3"></div>
+
+              <h3 class="card-title">Interface Theme</h3>
+              <p class="text-sm text-muted mb-3">Toggle between botanical light mode and comfortable forest dark mode.</p>
+              
+              <div class="settings-option-row">
+                <label for="setting-theme-select" class="form-label mb-0">Active Theme:</label>
+                <select id="setting-theme-select" class="form-select form-select-sm w-auto">
+                  <option value="light">Botanical Light</option>
+                  <option value="dark">Forest Dark</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Local Data Storage Management -->
+            <div class="card">
+              <h3 class="card-title" data-i18n="privacy">Privacy and storage</h3>
+              <p class="text-sm text-muted" data-i18n="privacy_body">
+                Images and analysis records are stored only in the local SQLite/browser storage on this computer. No image is sent to a paid API or external prediction service.
+              </p>
+
+              <div class="storage-info-box my-3">
+                <div class="spec-row">
+                  <span class="spec-key">Stored Analysis Records:</span>
+                  <span class="spec-val font-mono" id="setting-storage-count">0 records</span>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-key">Storage Usage (Approx):</span>
+                  <span class="spec-val font-mono" id="setting-storage-bytes">0 KB</span>
+                </div>
+              </div>
+
+              <div class="settings-actions-stack">
+                <button class="btn btn-outline-forest" id="btn-seed-sample-data">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Seed Realistic Baseline History</span>
+                </button>
+                <button class="btn btn-outline-danger" id="btn-clear-storage">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                  <span>Clear All Stored Records</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Offline Model & Scientific Specifications -->
+            <div class="card card-full-span">
+              <h3 class="card-title" data-i18n="about_title">About PlantCare AI</h3>
+              
+              <div class="spec-grid-3">
+                <div class="spec-block">
+                  <span class="spec-heading" data-i18n="model">Model</span>
+                  <p class="spec-detail" data-i18n="model_details">Input: 224×224 RGB · Output: 15 original source classes · inference runs locally</p>
+                </div>
+                <div class="spec-block">
+                  <span class="spec-heading" data-i18n="dataset">Dataset</span>
+                  <p class="spec-detail" data-i18n="dataset_details">PlantVillage color subset · tomato, potato, bell pepper · 15 original labels</p>
+                  <small class="text-muted" data-i18n="dataset_attribution">CC BY-SA 3.0 · Mohanty, Hughes & Salathé (2016)</small>
+                </div>
+                <div class="spec-block">
+                  <span class="spec-heading" data-i18n="evaluation">Offline model evaluation</span>
+                  <p class="spec-detail">93.16% test accuracy &bull; 92.37% macro F1 &bull; 4,047 test images</p>
+                  <small class="text-muted" data-i18n="saved_eval_note">Saved Phase 4 evaluation results; the application does not reload or re-evaluate test images.</small>
+                </div>
+              </div>
+
+              <!-- Per-Class Evaluation Table -->
+              <h4 class="subheading mt-4" data-i18n="per_class_table_title">Held-Out Test Set Performance (Per-Class)</h4>
+              <div class="table-responsive mt-2">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Class Identifier</th>
+                      <th scope="col">Crop</th>
+                      <th scope="col">Precision</th>
+                      <th scope="col">Recall</th>
+                      <th scope="col">F1-Score</th>
+                      <th scope="col">Test Support</th>
+                    </tr>
+                  </thead>
+                  <tbody id="settings-per-class-body">
+                    <!-- Populated dynamically with exact grounded test metrics -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Disease Detail Modal (Reusable for Library and History) -->
+  <div class="modal-backdrop hidden" id="disease-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-tag" id="modal-crop-badge">Crop</span>
+          <h3 class="modal-title" id="modal-title">Condition Name</h3>
+          <p class="modal-subtitle" id="modal-crop-title">Crop Scientific Name</p>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Content injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline-forest btn-sm" id="modal-done-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirmation Dialog Modal -->
+  <div class="modal-backdrop hidden" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+    <div class="modal-card modal-card-sm">
+      <div class="modal-header">
+        <h4 class="modal-title text-danger" id="confirm-modal-title">Confirm Action</h4>
+        <button class="modal-close-btn" id="confirm-modal-close" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-modal-message">Are you sure you want to proceed?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-ghost btn-sm" id="confirm-modal-cancel">Cancel</button>
+        <button class="btn btn-danger btn-sm" id="confirm-modal-proceed">Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Stack -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Main JavaScript Engine -->
+  <script src="script.js"></script>
+</body>
+</html>
